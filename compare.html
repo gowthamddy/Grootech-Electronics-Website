@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!--=============== FAVICON ===============-->
+        <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
+
+        <!--=============== REMIX ICONS ===============-->
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+        <!--=============== CSS ===============-->
+        <link rel="stylesheet" href="assets/css/styles.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+        <style>
+         td>img {
+             width: 100%;
+             height: 250px;
+             object-fit: contain;
+         }
+     </style>
+        <title>Compare</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    </head>
+    <body>
+      
+        <!--==================== HEADER ====================-->
+        <header class="header" id="header">
+            <nav class="nav container">
+                <a href="#" class="nav__logo text-decoration-none">
+                    <i class="ri-earth-line nav__logo-icon text-decoration-none"></i> Groot Tech
+                </a>
+
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item">
+                            <a href="index2.html" class="nav__link active-link text-decoration-none">Home</a>
+                        </li>
+                        
+                      
+                        <li class="nav__item">
+                            <a href="compare.html" class="nav__link text-decoration-none">compare</a>
+                        </li>
+                    </ul>
+
+                    <div class="nav__close" id="nav-close">
+                        <i class="ri-close-line"></i>
+                    </div>
+                </div>
+
+              
+            </nav>
+             <section>
+        <h1 class="display-5 my-5 text-center">Comparision of products</h1>
+       <div class="container">
+        <div class="col-md-9 mx-auto">
+            <table class="table">
+                <tr class="bg-light">
+                    <th>Select Product</th>
+                    <th width="300px">
+                        <select class="form-control" id="select1" onchange="item1(this.value)">
+                            <option value="0">-- Select Anyone --</option>
+                        </select>
+                    </th>
+                    <th width="300px">
+                        <select class="form-control" id="select2" onchange="item2(this.value)">
+                            <option value="0">-- Select Anyone --</option>
+                        </select>
+                    </th>
+                </tr>
+                <tr>
+                    <th>Product </th>
+                    <td>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png"
+                            id="img1" alt=" ">
+                    </td>
+                    <td>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png"
+                            id="img2" alt=" ">
+                    </td>
+                </tr>
+                <tr>
+                    <th>Product Description</th>
+                    <td id="desc1">N/A</td>
+                    <td id="desc2">N/A</td>
+                </tr>
+                <tr>
+                    <th>STORAGE/RAM</th>
+                    <td id="ram1">N/A</td>
+                    <td id="ram2">N/A</td>
+                </tr>
+                
+                <tr>
+                    <th>Operating System</th>
+                    <td id="os1">N/A</td>
+                    <td id="os2">N/A</td>
+                </tr>
+                
+            </table>
+
+        </div>
+    </div>
+    <a href="#" class="scrollup" id="scroll-up"> 
+        <i class="ri-arrow-up-fill scrollup__icon"></i>
+    </a>
+
+    <!--=============== SCROLL REVEAL ===============-->
+    <script src="assets/js/scrollreveal.min.js"></script>
+    <script src="assets/js/data.js"></script>
+    <!--=============== MAIN JS ===============-->
+    <script src="assets/js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js "></script>
+   
+        </header><br><br><br><br>
+        <script>
+            for (var i = 1; i < product.length; i++) {
+          document.getElementById("select1").innerHTML += `
+          <option value="${i}">${product[i].title}</option>
+          `;
+          document.getElementById("select2").innerHTML += `
+          <option value="${i}">${product[i].title}</option>
+          `;
+      }
+      function item1(a) {
+          var select2 = document.getElementById("select2").value;
+          if (a != select2) {
+              document.getElementById("img1").src = product[a].image
+              document.getElementById("desc1").innerHTML = product[a].description
+              document.getElementById("ram1").innerHTML = product[a].ram
+              document.getElementById("os1").innerHTML = product[a].system
+           
+          } else {
+              document.getElementById("select1").selectedIndex = 0;
+              document.getElementById("img1").src = product[0].image
+              document.getElementById("ram1").innerHTML = ""
+              document.getElementById("desc1").innerHTML = ""
+            
+          }
+      }
+      
+      function item2(a) {
+          var select1 = document.getElementById("select1").value;
+          if (a != select1) {
+              document.getElementById("img2").src = product[a].image
+              document.getElementById("desc2").innerHTML = product[a].description
+              document.getElementById("ram2").innerHTML =  product[a].ram
+              document.getElementById("os2").innerHTML = product[a].system
+             
+          } else {
+              document.getElementById("select2").selectedIndex = 0;
+              document.getElementById("img2").src = product[0].image
+              document.getElementById("ram2").innerHTML = ""
+              document.getElementById("desc2").innerHTML = ''
+             
+          }
+      }
+      
+      
+          </script>
+       
+    
+    
+    
+    </body>
+
+</html>

@@ -1,0 +1,11 @@
+
+div.img{
+    position: relative;
+}
+
+.slideshow-container {
+  width: 100%;
+  position: absolute;
+  margin: 120px;
+}
+

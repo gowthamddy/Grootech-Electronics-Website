@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!--=============== FAVICON ===============-->
+        <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
+
+        <!--=============== REMIX ICONS ===============-->
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+        <!--=============== CSS ===============-->
+        <link rel="stylesheet" href="assets/css/styles.css">
+
+        <title>Right electronics-compare,review</title>
+    </head>
+    <body>
+        <!--==================== HEADER ====================-->
+        <header class="header" id="header">
+            <nav class="nav container">
+                <a href="#" class="nav__logo">
+                    <i class="ri-earth-line nav__logo-icon"></i> Groot Tech
+                </a>
+
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item">
+                            <a href="index2.html" class="nav__link active-link">Home</a>
+                        </li>
+                       
+                        <li class="nav__item">
+                            <a href="products2.html" class="nav__link">Products</a>
+                        </li>
+                        
+                        <li class="nav__item">
+                            <a href="compare.html" class="nav__link">Compare</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="review.html" class="nav__link">Review</a>
+                        </li>
+
+                    </ul>
+
+                    <div class="nav__close" id="nav-close">
+                        <i class="ri-close-line"></i>
+                    </div>
+                </div>
+
+                <div class="nav__btns">
+                    <!-- Theme change button -->
+                    <i class="ri-moon-line change-theme" id="theme-button"></i>
+
+                    <div class="nav__toggle" id="nav-toggle">
+                        <i class="ri-menu-line"></i>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main class="main">
+          
+            
+            <!--==================== CONTACT ====================-->
+            <section class="contact section container" id="contact">                
+                <div class="contact__container grid">
+                    
+                   
+                    <form action="" id="myform">
+                        <h3>Write your review:</h3><br><br>
+                        <div class="contact__inputs">
+                            <div class="contact__content">
+                                <input type="email" placeholder=" " class="contact__input" id="Email">
+                                <label for="" class="contact__label">Email</label>
+                            </div>
+            
+            
+                            <div class="contact__content contact__area">
+                                <input name="message" placeholder=" " class="contact__input" id="writereview">                              
+                                <label for="" class="contact__label">write review</label>
+                            </div>
+                        </div>
+            
+                        <button class="button button--flex" type="submit">
+                            post 
+                            <!-- <i class="ri-arrow-right-up-line button__icon"></i> -->
+                        </button>
+                        <script>
+                            function func() {
+                                
+                    
+                            }
+                            const form = document.getElementById('myform');
+                    
+                            form.addEventListener('submit', async function (event) {
+                                event.preventDefault();
+                    
+                                const Email = document.getElementById('Email').value;
+                                const writereview = document.getElementById('writereview').value;
+                    
+                                let headersList = {
+                                    "Accept": "/",
+                                    "Content-Type": "application/json"
+                                }
+                    
+                                let bodyContent = JSON.stringify({
+                                    "Email": Email,
+                                    "writereview": writereview
+                                });
+                    
+                                let response = await fetch("http://127.0.0.1:3000/api/review/post", {
+                    
+                                    method: "POST",
+                                    body: bodyContent,
+                                    headers: headersList
+                                });
+
+                                var data = await response.text();
+                                console.log(data);
+                                alert(data);
+                            });
+                        </script>
+                        
+                    </form>
+                    
+                </div>
+            </section>
+         
+            <style>*{
+                margin: 0;
+                padding: 0;
+            }
+            .rate {
+                float: left;
+                height: 46px;
+    padding: 0 10px;
+            }
+            .rate:not(:checked) > input {
+                position:absolute;
+                top:-9999px;
+            }
+            .container5{
+                display: flex;
+                justify-content: center;
+                text-align: center;
+
+            }
+            .rate:not(:checked) > label {
+                float:right;
+                width:1em;
+                overflow:hidden;
+                white-space:nowrap;
+                cursor:pointer;
+                font-size:30px;
+                color:#ccc;
+            }
+            .rate:not(:checked) > label:before {
+                content: '★ ';
+            }
+            .rate > input:checked ~ label {
+                color: #ffc700;    
+            }
+            .rate:not(:checked) > label:hover,
+            .rate:not(:checked) > label:hover ~ label {
+                color: #deb217;  
+            }
+            .rate > input:checked + label:hover,
+            .rate > input:checked + label:hover ~ label,
+            .rate > input:checked ~ label:hover,
+            .rate > input:checked ~ label:hover ~ label,
+            .rate > label:hover ~ input:checked ~ label {
+                color: #c59b08;
+            }
+            
+            </style>
+        </main>
+        
+        <!--==================== FOOTER ====================-->
+        <footer class="footer section">
+            <div class="footer__container container grid">
+                <div class="footer__content">
+                    <a href="#" class="footer__logo">
+                        <i class="ri-earth-line footer__logo-icon"></i> Groot Tech
+                    </a>
+
+                    <h3 class="footer__title">
+                        Subscribe to our newsletter <br> to stay update
+                    </h3>
+
+                    <div class="footer__subscribe">
+                        <input type="email" placeholder="Enter your email" class="footer__input">
+
+                        <button class="button button--flex footer__button">
+                            Subscribe
+                            <i class="ri-arrow-right-up-line button__icon"></i>
+                        </button>
+                    </div>
+                </div><br>
+
+                <div class="footer__content">
+                    <h3 class="footer__title">Our Address</h3>
+
+                    <ul class="footer__data">
+                        <li class="footer__information">39/551,Ramalayam street</li>
+                        <li class="footer__information">Aravinda nagar,kadapa</li>
+                        <li class="footer__information">Andhra pradesh,India</li>
+                       
+                    </ul>
+                </div>
+
+                <div class="footer__content">
+                    <h3 class="footer__title">Contact Us</h3>
+
+                    <ul class="footer__data">
+                        <li class="footer__information">+91 8125618001</li>
+                        
+                        <div class="footer__social">
+                            <a href="https://www.facebook.com/" class="footer__social-link">
+                                <i class="ri-facebook-fill"></i>
+                            </a>
+                            <a href="https://www.instagram.com/" class="footer__social-link">
+                                <i class="ri-instagram-line"></i>
+                            </a>
+                            <a href="https://twitter.com/" class="footer__social-link">
+                                <i class="ri-twitter-fill"></i>
+                            </a>
+                        </div>
+                    </ul>
+                </div>
+
+            </div>
+
+            <p class="footer__copy">&#169; Gowtham. All rigths reserved</p>
+        </footer>
+        
+        <!--=============== SCROLL UP ===============-->
+        <a href="#" class="scrollup" id="scroll-up"> 
+            <i class="ri-arrow-up-fill scrollup__icon"></i>
+        </a>
+
+        <!--=============== SCROLL REVEAL ===============-->
+        
+        
+        <!--=============== MAIN JS ===============-->
+        <script src="assets/js/main.js"></script>
+    </body>
+</html>
